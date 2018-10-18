@@ -1,0 +1,2 @@
+use :noh after /? search 
+
