@@ -1,3 +1,6 @@
+" 非兼容模式
+set nocompatible
+
 " 设置行号
 set number
 
@@ -25,6 +28,11 @@ set smartcase
 set autoindent
 set smartindent
 
+" solarized 主题配置
 syntax enable
 set background=dark
 colorscheme solarized
+
+" let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+" let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
