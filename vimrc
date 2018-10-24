@@ -31,3 +31,15 @@ map <silent> <leader>ss :source ~/.vim/vimrc<cr>
 map <silent> <leader>ee :e  ~/.vim/vimrc<cr>
 " when .vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vim/vimrc
+
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+
+" ================ Add all your plugins here
+
+" ================ all of your Plugins must be added before the following line 
+call vundle#end()
