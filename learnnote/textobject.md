@@ -1,3 +1,4 @@
+### 文本对象
 a
 i 
 daw delete a word 包含尾部空格

@@ -1,4 +1,7 @@
 " :echo "Hello, world" 注释: "开头表示注释
+" 取消备份
+" set nobackup
+" set noswapfile
 " ==========================一般配置=====================
 let mapleader = "," 
 set nocompatible " 非兼容模式
@@ -15,6 +18,8 @@ set ignorecase
 set smartcase
 set autoindent
 set smartindent
+set cursorline " 突出显示当前行
+set showmode " 左下角显示当前vim模式
 " ========================文本格式排版=====================
 set tabstop=4 " 设置tab长度为4
 set shiftwidth=4 " 设置自动对齐的缩进级别
@@ -31,3 +36,15 @@ map <silent> <leader>ss :source ~/.vim/vimrc<cr>
 map <silent> <leader>ee :e  ~/.vim/vimrc<cr>
 " when .vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vim/vimrc
+
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+
+" call vundle#begin()
+" Plugin 'gmarik/Vundle.vim'
+
+" ================ Add all your plugins here
+
+" ================ all of your Plugins must be added before the following line 
+" call vundle#end()
