@@ -8,7 +8,6 @@ set nocompatible " 非兼容模式
 set encoding=utf-8 " 使用utf-8编码
 set number " 设置行号
 set history=100 " 默认指令记录100
-set cursorline  " 显示当前行
 set ruler " 设置右下角信息显示
 set showcmd " show command
 set ignorecase " Ignore 
@@ -18,7 +17,7 @@ set ignorecase
 set smartcase
 set autoindent
 set smartindent
-set cursorline " 突出显示当前行
+" set cursorline " 突出显示当前行
 set showmode " 左下角显示当前vim模式
 " ========================文本格式排版=====================
 set tabstop=4 " 设置tab长度为4
