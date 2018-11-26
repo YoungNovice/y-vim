@@ -29,8 +29,13 @@ set background=dark
 colorscheme solarized
 " let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 " let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
 " fast reloading of the .vim/vimrc
 map <silent> <leader>ss :source ~/.vim/vimrc<cr>
+" 在normal模式下开启编辑vimrc文件
+nnoremap <leader>ev :vs $MYVIMRC<cr>
+" 重读vimrc配置文件
+nnoremap <leader>sv :source $MYVIMRC<cr>
 " fast editing of .vimrc
 map <silent> <leader>ee :e  ~/.vim/vimrc<cr>
 " when .vimrc is edited, reload it
@@ -47,3 +52,29 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 " ================ all of your Plugins must be added before the following line 
 " call vundle#end()
+"
+"
+" 映射 -删除当前行 然后粘贴到下一行
+nnoremap <leader>d ddp
+" 映射 -删除当前行 然后粘贴到上一行
+nnoremap <leader>du ddkP
+" quote by ""
+nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
+
+" map noremap unmap --prefix n v i
+" map nmap vmap imap 是分别在all normal visual insert模式下的映射
+" noremap nnoremap vnoremap vnoremap 非递归映射
+" *map会产生递归问题 用*noremap处理
+" unmap 删除某个映射
+
+" 增加缩写
+iabbrev adn and
+iabbrev @@ 514565376@qq.com
+iabbrev github http://github.com/YoungNovice
+
+" '<,'>
+" 用jk替代 <esc>
+inoremap jk <esc>
+" 插入模式下禁用esc
+inoremap <esc> <nop>
