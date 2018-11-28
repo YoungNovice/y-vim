@@ -1,4 +1,5 @@
-" :echo "Hello, world" 注释: "开头表示注释
+" 注释: "开头表示注释
+:echo ">^.^< 今天也是充满希望的一天"
 " 取消备份
 " set nobackup
 " set noswapfile
@@ -61,20 +62,28 @@ nnoremap <leader>du ddkP
 " quote by ""
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
+" '<,'>
 
 " map noremap unmap --prefix n v i
 " map nmap vmap imap 是分别在all normal visual insert模式下的映射
 " noremap nnoremap vnoremap vnoremap 非递归映射
 " *map会产生递归问题 用*noremap处理
-" unmap 删除某个映射
+" unmap nunmap ....删除某个映射
 
 " 增加缩写
 iabbrev adn and
 iabbrev @@ 514565376@qq.com
 iabbrev github http://github.com/YoungNovice
 
-" '<,'>
-" 用jk替代 <esc>
+" 插入模式下用jk替代 <esc>
 inoremap jk <esc>
 " 插入模式下禁用esc
 inoremap <esc> <nop>
+" 插入模式下光标回退一下 在敲击成对的空格时用到
+inoremap <leader>a <esc>i
+
+" 禁用方向键盘
+map <left> <nop>
+map <right> <nop>
+map <up> <nop>
+map <down> <nop>
