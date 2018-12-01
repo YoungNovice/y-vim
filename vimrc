@@ -47,17 +47,18 @@ map <silent> <leader>ee :e  ~/.vim/vimrc<cr>
 " 一般来说BufRead BufNewFile是同时出现的这样读文件无论是否存在都是执行这个命令
 :autocmd BufRead,BufNewFile *.html setlocal nowrap
 
-" js文件没有行号
-:autocmd FileType javascript setlocal nonumber
-" snippet
-:autocmd FileType javascript :iabbrev <buffer> iff if()<left>
+augroup file_js
+	autocmd FileType javascript setlocal nonumber " js文件没有行号
+	autocmd FileType javascript :iabbrev <buffer> iff if()<left> " snippet
+augroup END
 
-" 对于不同的文件类型 我们用的注释映射是一样的
-:autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
-:autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
+augroup file_annotations " 对于不同的文件类型 我们用的注释映射是一样的
+	autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
+	autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
+augroup END
 
-" when .vimrc is edited, reload it
-autocmd! bufwritepost vimrc source ~/.vim/vimrc
+" 当vimrc文件被修改之后自动重新加载vimrc
+:autocmd BufWritePost vimrc :source $MYVIMRC
 
 
 " set the runtime path to include Vundle and initialize
