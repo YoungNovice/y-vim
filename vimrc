@@ -1,11 +1,11 @@
 " 注释: "开头表示注释
-:echo ">^.^< 今天也是充满希望的一天"
+" :echo ">^.^< 今天也是充满希望的一天"
 " 取消备份
 " set nobackup
 " set noswapfile
 " ==========================一般配置=====================
 let mapleader = "," 
-set nocompatible " 非兼容模式
+let maplocalleader = "\\" 
 set encoding=utf-8 " 使用utf-8编码
 set number " 设置行号
 set history=100 " 默认指令记录100
@@ -39,6 +39,23 @@ nnoremap <leader>ev :vs $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 " fast editing of .vimrc
 map <silent> <leader>ee :e  ~/.vim/vimrc<cr>
+
+" 创建buffer自动创建其文件
+:autocmd BufNewFile * :write
+" 在保存html文件前做好缩进
+:autocmd BufWritePre,BufRead  *.html :normal gg=G
+" 一般来说BufRead BufNewFile是同时出现的这样读文件无论是否存在都是执行这个命令
+:autocmd BufRead,BufNewFile *.html setlocal nowrap
+
+" js文件没有行号
+:autocmd FileType javascript setlocal nonumber
+" snippet
+:autocmd FileType javascript :iabbrev <buffer> iff if()<left>
+
+" 对于不同的文件类型 我们用的注释映射是一样的
+:autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
+:autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
+
 " when .vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vim/vimrc
 
@@ -59,6 +76,11 @@ set rtp+=~/.vim/bundle/Vundle.vim
 nnoremap <leader>d ddp
 " 映射 -删除当前行 然后粘贴到上一行
 nnoremap <leader>du ddkP
+nnoremap H ^
+nnoremap L $
+nnoremap <leader>h H
+nnoremap <leader>l L
+
 " quote by ""
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
@@ -82,8 +104,14 @@ inoremap <esc> <nop>
 " 插入模式下光标回退一下 在敲击成对的空格时用到
 inoremap <leader>a <esc>i
 
-" 禁用方向键盘
+" 禁用方向键盘 no operation
 map <left> <nop>
 map <right> <nop>
 map <up> <nop>
 map <down> <nop>
+" normal模式下禁用q操作 录制宏 Ex模式
+nnoremap q <nop>
+nnoremap Q <nop>
+
+
+
