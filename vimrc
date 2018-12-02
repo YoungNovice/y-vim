@@ -117,7 +117,7 @@ map <up> <nop>
 map <down> <nop>
 " normal模式下禁用q操作 录制宏 Ex模式
 nnoremap q <nop>
-nnoremap Q <nop>
+" nnoremap Q <nop>
 
 " Operator-Pending映射 Operator 有(d y c)
 " dp=di(      cp=ci(
