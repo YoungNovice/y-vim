@@ -114,5 +114,47 @@ map <down> <nop>
 nnoremap q <nop>
 nnoremap Q <nop>
 
+" Operator-Pending映射 Operator 有(d y c)
+" dp=di(      cp=ci(
+onoremap p i( 
+" in( il( 下一个括号 配合操作使用
+" cin(清除下一个小括号里面的内容并且进入插入模式
+onoremap in( :<c-u>normal! f(vi(<cr>
+onoremap il( :<c-u>normal! F)vi(<cr>
+" 只处理markdown的标题栏
+onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"<cr>
+" 处理markdown的标题的==
+onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rg_vk0"<cr>
 
+" 状态栏设置
+"statusline                                                                                                                                
+set statusline=
+set statusline+=%7*\[%n]                                  "buffernr
+set statusline+=%1*\ %<%F\                                "文件路径
+set statusline+=%2*\ %y\                                  "文件类型
+set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''}      "编码1
+set statusline+=%3*\ %{(&bomb?\",BOM\":\"\")}\            "编码2
+set statusline+=%4*\ %{&ff}\                              "文件系统(dos/unix..) 
+set statusline+=%5*\ %{&spelllang}\%{HighlightSearch()}\  "语言 & 是否高亮，H表示高亮?
+set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\             "光标所在行号/总行数 (百分比)
+set statusline+=%9*\ col:%03c\                            "光标所在列
+set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Read only? Top/bottom
+function! HighlightSearch()
+  if &hls
+	return 'H'
+  else
+	return ''
+  endif
+endfunction
+hi User1 ctermfg=white  ctermbg=darkred
+hi User2 ctermfg=blue  ctermbg=58
+hi User3 ctermfg=white  ctermbg=100
+hi User4 ctermfg=darkred  ctermbg=95
+hi User5 ctermfg=darkred  ctermbg=77
+hi User7 ctermfg=darkred  ctermbg=blue  cterm=bold
+hi User8 ctermfg=231  ctermbg=blue
+" hi User9 ctermfg=#ffffff  ctermbg=#810085
+hi User0 ctermfg=yellow  ctermbg=138
 
+" 总是显示状态栏
+set laststatus=2
