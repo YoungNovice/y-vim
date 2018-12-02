@@ -57,6 +57,11 @@ augroup file_annotations " 对于不同的文件类型 我们用的注释映射�
 	autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
 augroup END
 
+augroup filetype_vim
+	autocmd!
+	autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
 " 当vimrc文件被修改之后自动重新加载vimrc
 :autocmd BufWritePost vimrc :source $MYVIMRC
 
