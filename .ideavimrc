@@ -1,0 +1,23 @@
+let mapleader=","
+" idea插件能支持的选项
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set showmode
+set number
+set relativenumber
+set scrolloff=3
+set history=100000
+
+inoremap jk <esc>
+
+" quit visual mode
+vnoremap v <esc>
+nnoremap H ^
+nnoremap L $
+
+" redo
+nnoremap U <C-r>
+
+" gT gt tab之间切换 是个好东西啊
