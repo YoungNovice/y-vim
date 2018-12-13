@@ -6,7 +6,8 @@ set ignorecase
 set smartcase
 set showmode
 set number
-set relativenumber
+" 相对行号
+" set relativenumber
 set scrolloff=3
 set history=100000
 
