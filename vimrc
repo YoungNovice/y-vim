@@ -26,6 +26,7 @@ set shiftwidth=4 " 设置自动对齐的缩进级别
 filetype plugin indent on
 " ======================solarized 主题配置================ 
 syntax enable
+syntax on
 set background=dark
 colorscheme solarized
 " let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -164,8 +165,22 @@ hi User0 ctermfg=yellow  ctermbg=138
 " 总是显示状态栏
 set laststatus=2
 
-" 如果打开文件后发现乱码， 修改fileencoding是不行的， 需要重启才行
-" 用:e ++enc=xxx 来重新reload这个文件
-" 因为vim已经以一个错误的编码读取了文件， 这个时候使用set fileencoding
-" 就算设置对了文件的编码也是没有卵用的
+" :e ++enc=xxx 
+" chinese在unix中表示gb2312 在windows中表示cp936
 set fileencodings=utf-8,cp936,latin1
+
+
+
+" winManager plugin配置
+let g:winManagerWindowLayout='FileExplorer|TagList'
+nmap wm :WMToggle<cr>
+map <silent> <F9> :WMToggle<cr>
+
+" ctags
+" set tags=tags;
+" set autochdir
+
+" taglist plugin配置
+" let Tlist_Show_One_File=1 
+" let Tlist_Exit_OnlyWindow=1
+
