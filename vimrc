@@ -70,13 +70,13 @@ augroup END
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
-" call vundle#begin()
-" Plugin 'gmarik/Vundle.vim'
-
+call vundle#begin()
+ Plugin 'VundleVim/Vundle.vim'
 " ================ Add all your plugins here
 
 " ================ all of your Plugins must be added before the following line 
-" call vundle#end()
+call vundle#end()
+
 "
 "
 " 映射 -删除当前行 然后粘贴到下一行
