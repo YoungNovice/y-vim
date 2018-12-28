@@ -1,44 +1,36 @@
-" 此配置是给window下gVim使用的
+" modify by YoungNovice for gVim
 
-
-set encoding=utf-8
+set helplang=cn  " use chinese help doc
+set guifont=Consolas:h11 " set font
+inoremap jk <ESC> 
+set number
+set encoding=utf-8 " :help encoding-names
 set fileencodings=utf-8,chinese,cp936,ucs-bom,latin-1
 if has("win32")
-set fileencoding=chinese
+	set fileencoding=chinese
 else
-set fileencoding=utf-8
+	set fileencoding=utf-8
 endif
 "解决菜单乱码 begin
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
-"解决菜单乱码 end
+language messages zh_CN.utf-8 "consle lang 
+colorscheme darkblue
+set tabstop=4 
+set autochdir " 自动设置当前目录为正在编辑的目录
+set hidden " 自动隐藏没有保存的缓冲区
+set scrolloff=3 " 在光标在接近底端的时候, 自动向下滚动
 
-"解决consle输出乱码 begin
-language messages zh_CN.utf-8
-"解决consle输出乱码 end
+"Toggle Menu and Toolbar 隐藏菜单栏和工具栏
+"set guioptions-=m
+"set guioptions-=T
+"map <silent> <F2> :    if &guioptions =~# 'T' <bar>
+"                         \set guioptions-=T <bar>
+"                         \set guioptions-=m <bar>
+"                         \else <Bar>
+"                           \set guioptions+=T <bar>
+"                           \set guioptions+=m <bar>
+"                       \endif<CR>
 
 " source $VIMRUNTIME/vimrc_example.vim
 " source $VIMRUNTIME/mswin.vim
-" 设置一个好看的字体
-set gfn=Consolas:h11
-inoremap jk <ESC>
-set number
-
-" encoding fileencoding fileencodings termencoding
-" :help encoding-names
-
-" encoding是vim内部使用的编码方式
-" vim的buffer 菜单文本 消息等等
-
-" fileencoding vim中当前编辑的文件的字符编码方式
-" vim保存文件时也会将文件保存为这种编码方式
-" 并且将fileencoding设置为最终探测到的字符编码方式
-" 因此最好将Unicode编码方式放到列表的最前面将拉丁语编码
-" 放在最后边
-
-" termencoding vim所工作的终端(或者windows的console)
-" 的字符编码方式， 这个选项在windows下对我们常用的
-" GUI模式的gVim无效， 而对console模式的vim而言就是windows
-" 控制台的代码页
-
-
