@@ -163,3 +163,9 @@ hi User0 ctermfg=yellow  ctermbg=138
 
 " 总是显示状态栏
 set laststatus=2
+
+" 如果打开文件后发现乱码， 修改fileencoding是不行的， 需要重启才行
+" 用:e ++enc=xxx 来重新reload这个文件
+" 因为vim已经以一个错误的编码读取了文件， 这个时候使用set fileencoding
+" 就算设置对了文件的编码也是没有卵用的
+set fileencodings=utf-8,cp936,latin1
