@@ -1,3 +1,7 @@
+" 此配置文件是给ideavim插件配置使用的
+" ideavim智能做一些基本的配置映射和少量的set配置， 
+" 但是可以使用idea IDE特有的action做配置还是不错的
+
 let mapleader=","
 " idea插件能支持的选项
 set hlsearch
