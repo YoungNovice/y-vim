@@ -1,14 +1,13 @@
 " 注释: "开头表示注释
 " :echo ">^.^< 今天也是充满希望的一天"
  
-" vim-plug replace vundle
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/winmanager'
 Plug 'vim-scripts/taglist.vim'
-Plug 'vim-scripts/visualMarks.vim'
+" Plug 'vim-scripts/visualMarks.vim'
 Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
