@@ -68,19 +68,27 @@ augroup END
 
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+"set rtp+=~/.vim/bundle/Vundle.vim
+" 移除vundle
+" call vundle#begin()
+" Plugin 'VundleVim/Vundle.vim'
 " ================ Add all your plugins here
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'kien/ctrlp.vim'
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'jistr/vim-nerdtree-tabs'
+" Plugin 'kien/ctrlp.vim'
 " ================ all of your Plugins must be added before the following line 
-call vundle#end()
+" call vundle#end()
 
-"
-"
+" vim-plug replace vundle
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'kien/ctrlp.vim'
+Plug 'vim-scripts/winmanager'
+Plug 'vim-scripts/taglist.vim'
+Plug 'vim-scripts/visualMarks.vim'
+call plug#end()
+
 " 映射 -删除当前行 然后粘贴到下一行
 nnoremap <leader>d ddp
 " 映射 -删除当前行 然后粘贴到上一行
