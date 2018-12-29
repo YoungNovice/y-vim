@@ -71,9 +71,11 @@ augroup END
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
- Plugin 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 " ================ Add all your plugins here
-
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'kien/ctrlp.vim'
 " ================ all of your Plugins must be added before the following line 
 call vundle#end()
 
@@ -176,11 +178,26 @@ let g:winManagerWindowLayout='FileExplorer|TagList'
 nmap wm :WMToggle<cr>
 map <silent> <F9> :WMToggle<cr>
 
-" ctags
-" set tags=tags;
-" set autochdir
+" ctags plugin配置
+set tags=tags;
+set autochdir
 
 " taglist plugin配置
-" let Tlist_Show_One_File=1 
-" let Tlist_Exit_OnlyWindow=1
+let Tlist_Show_One_File=1 
+let Tlist_Exit_OnlyWindow=1
+" 关闭NERDTree快捷键
+map <leader>t :NERDTreeToggle<CR>
+" 显示行号
+let NERDTreeShowLineNumbers=1
+let NERDTreeAutoCenter=1
+" 是否显示隐藏文件
+let NERDTreeShowHidden=1
+" 设置宽度
+let NERDTreeWinSize=21
+" 在终端启动vim时，共享NERDTree
+let g:nerdtree_tabs_open_on_console_startup=1
+ " 忽略一下文件的显示
+let NERDTreeIgnore=['\.pyc','\~$','\.swp']
+ " 显示书签列表
+let NERDTreeShowBookmarks=1
 
