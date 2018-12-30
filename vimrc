@@ -1,11 +1,10 @@
-" 注释: "开头表示注释
-" :echo ">^.^< 今天也是充满希望的一天"
- 
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
+" 这个我喜欢
+Plug 'vim-scripts/minibufexplorerpp'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'kien/ctrlp.vim'
-Plug 'vim-scripts/winmanager'
+" Plug 'vim-scripts/winmanager'
 " Plug 'vim-scripts/taglist.vim'
 " Plug 'altercation/vim-colors-solarized'
 Plug 'vim-scripts/Emmet.vim'
@@ -22,13 +21,25 @@ Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
 call plug#end()
 
+" :e ++enc=xxx  chinese在unix中表示gb2312 在windows中表示cp936 :help encoding-names
+set encoding=utf-8 
+set fileencodings=utf-8,chinese,cp936,ucs-bom,latin-1
+if has("win32")
+	set fileencoding=chinese
+else
+	set fileencoding=utf-8
+endif
+"解决菜单乱码 begin
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+language messages zh_CN.utf-8 "consle lang 
+
 " 取消备份
-" set nobackup
-" set noswapfile
+set nobackup
+set noswapfile
 " ==========================一般配置=====================
 let mapleader = "," 
 let maplocalleader = "\\" 
-set encoding=utf-8 " 使用utf-8编码
 set number " 设置行号
 set history=100 " 默认指令记录100
 set ruler " 设置右下角信息显示
@@ -45,6 +56,10 @@ set showmode " 左下角显示当前vim模式
 " ========================文本格式排版=====================
 set tabstop=4 " 设置tab长度为4
 set shiftwidth=4 " 设置自动对齐的缩进级别
+set hidden " 自动隐藏没有保存的缓冲区
+set guifont=Consolas:h11 " set font
+set scrolloff=3 " 在光标在接近底端的时候
+set helplang=cn  " use chinese help doc
 filetype plugin indent on
 " ======================solarized 主题配置================ 
 syntax enable
@@ -133,14 +148,10 @@ onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"<cr>
 " 处理markdown的标题的==
 onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rg_vk0"<cr>
 
-" :e ++enc=xxx 
-" chinese在unix中表示gb2312 在windows中表示cp936
-set fileencodings=utf-8,cp936,latin1
-
 " winManager plugin配置
-let g:winManagerWindowLayout='FileExplorer|Tagbar'
-nmap wm :WMToggle<cr>
-map <silent> <F9> :WMToggle<cr>
+" let g:winManagerWindowLayout='FileExplorer|Tagbar'
+" nmap wm :WMToggle<cr>
+" map <silent> <F9> :WMToggle<cr>
 map <leader>tb <Esc>:Tagbar<CR>
 
 " ctags plugin配置
@@ -158,7 +169,7 @@ let NERDTreeAutoCenter=1
 " 是否显示隐藏文件
 let NERDTreeShowHidden=1
 " 设置宽度
-let NERDTreeWinSize=21
+let NERDTreeWinSize=30
 " 在终端启动vim时，共享NERDTree
 let g:nerdtree_tabs_open_on_console_startup=1
  " 忽略一下文件的显示
