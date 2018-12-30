@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 " 这个我喜欢
 Plug 'vim-scripts/minibufexplorerpp'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -12,6 +13,8 @@ Plug 'vim-scripts/xml.vim'
 Plug 'vim-scripts/html5.vim'
 Plug 'vim-scripts/mycomment'
 Plug 'morhetz/gruvbox'
+Plug 'vim-syntastic/syntastic'
+Plug 'tpope/vim-fugitive'
 " 状态栏 begin
 " Plug 'vim-airline/vim-airline'
 Plug 'Lokaltog/vim-powerline'
