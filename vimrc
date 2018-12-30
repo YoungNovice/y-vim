@@ -113,6 +113,7 @@ nnoremap H ^
 nnoremap L $
 nnoremap <leader>h H
 nnoremap <leader>l L
+nnoremap <silent> <leader>h :nohlsearch<CR>
 
 " quote by ""
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
