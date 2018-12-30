@@ -6,7 +6,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/winmanager'
-Plug 'vim-scripts/taglist.vim'
+" Plug 'vim-scripts/taglist.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-scripts/Emmet.vim'
 Plug 'vim-scripts/xml.vim'
@@ -15,6 +15,8 @@ Plug 'vim-scripts/mycomment'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'drewtempelmeyer/palenight.vim' " 基于 Onedark，效果差不多
+Plug 'Yggdroot/indentLine'
+Plug 'majutsushi/tagbar'
 call plug#end()
 
 " 取消备份
@@ -133,9 +135,10 @@ onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rg_vk0"<cr>
 set fileencodings=utf-8,cp936,latin1
 
 " winManager plugin配置
-let g:winManagerWindowLayout='FileExplorer|TagList'
+let g:winManagerWindowLayout='FileExplorer|Tagbar'
 nmap wm :WMToggle<cr>
 map <silent> <F9> :WMToggle<cr>
+map <leader>tb <Esc>:Tagbar<CR>
 
 " ctags plugin配置
 set tags=tags;
@@ -159,4 +162,7 @@ let g:nerdtree_tabs_open_on_console_startup=1
 let NERDTreeIgnore=['\.pyc','\~$','\.swp']
  " 显示书签列表
 let NERDTreeShowBookmarks=1
-
+" 缩进插件 
+let g:indentLine_noConcealCursor = 1
+let g:indentLine_color_term = 0
+let g:indentLine_char = '|'
