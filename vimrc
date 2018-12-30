@@ -7,13 +7,16 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/winmanager'
 " Plug 'vim-scripts/taglist.vim'
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
 Plug 'vim-scripts/Emmet.vim'
 Plug 'vim-scripts/xml.vim'
 Plug 'vim-scripts/html5.vim'
 Plug 'vim-scripts/mycomment'
 Plug 'morhetz/gruvbox'
-Plug 'vim-airline/vim-airline'
+" 状态栏 begin
+" Plug 'vim-airline/vim-airline'
+Plug 'Lokaltog/vim-powerline'
+" 状态栏 end
 Plug 'drewtempelmeyer/palenight.vim' " 基于 Onedark，效果差不多
 Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
