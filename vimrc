@@ -9,6 +9,12 @@ Plug 'vim-scripts/winmanager'
 Plug 'vim-scripts/taglist.vim'
 " Plug 'vim-scripts/visualMarks.vim'
 Plug 'altercation/vim-colors-solarized'
+Plug 'vim-scripts/Emmet.vim'
+Plug 'vim-scripts/xml.vim'
+Plug 'vim-scripts/html5.vim'
+Plug 'vim-scripts/vim-easy-align.vim'
+Plug 'vim-scripts/surround'
+Plug 'vim-scripts/mycomment'
 call plug#end()
 
 " 取消备份
@@ -40,8 +46,6 @@ syntax enable
 syntax on
 set background=dark
 colorscheme solarized
-" let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-" let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " fast reloading of the .vim/vimrc
 map <silent> <leader>ss :source ~/.vim/vimrc<cr>
@@ -118,7 +122,7 @@ map <up> <nop>
 map <down> <nop>
 " normal模式下禁用q操作 录制宏 Ex模式
 nnoremap q <nop>
-" nnoremap Q <nop>
+nnoremap Q <nop>
 
 " Operator-Pending映射 Operator 有(d y c)
 " dp=di(      cp=ci(
