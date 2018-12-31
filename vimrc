@@ -1,13 +1,12 @@
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-" 这个我喜欢
 Plug 'vim-scripts/minibufexplorerpp'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'kien/ctrlp.vim'
 " Plug 'vim-scripts/winmanager'
 " Plug 'vim-scripts/taglist.vim'
-" Plug 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-Solarized'
 Plug 'vim-scripts/Emmet.vim'
 Plug 'vim-scripts/xml.vim'
 Plug 'vim-scripts/html5.vim'
@@ -24,9 +23,13 @@ Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
 call plug#end()
 
-" :e ++enc=xxx  chinese在unix中表示gb2312 在windows中表示cp936 :help encoding-names
+" :e ++enc=xxx  chinese是一个别名在unix中表示gb2312 在windows中表示cp936 :h encoding-names
 set encoding=utf-8 
 set fileencodings=utf-8,chinese,cp936,ucs-bom,latin-1
+set nocompatible
+set novisualbell
+set noerrorbells
+set shortmess=atl
 if has("win32")
 	set fileencoding=chinese
 else
@@ -44,7 +47,7 @@ set noswapfile
 let mapleader = "," 
 let maplocalleader = "\\" 
 set number " 设置行号
-set history=100 " 默认指令记录100
+set history=1000 " 默认指令记录100
 set ruler " 设置右下角信息显示
 set showcmd " show command
 set ignorecase " Ignore 
@@ -54,15 +57,18 @@ set ignorecase
 set smartcase
 set autoindent
 set smartindent
-set cursorline " 突出显示当前行
+" set cursorline " 突出显示当前行
+" set cursorcolumn " 独处显示当前列
 set showmode " 左下角显示当前vim模式
 " ========================文本格式排版=====================
-set tabstop=4 " 设置tab长度为4
-set shiftwidth=4 " 设置自动对齐的缩进级别
+set tabstop=4 " 设置tab长度为4个空格 
+set shiftwidth=4 " 设置自动对齐的缩进级别 将换行自动缩进设置成四个空格
 set hidden " 自动隐藏没有保存的缓冲区
 set guifont=Consolas:h11 " set font
 set scrolloff=3 " 在光标在接近底端的时候
 set helplang=cn  " use chinese help doc
+set laststatus=2
+set t_Co=256 " 终端默认8色 设置成256支持
 filetype plugin indent on
 " ======================solarized 主题配置================ 
 syntax enable
@@ -156,7 +162,7 @@ onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rg_vk0"<cr>
 " let g:winManagerWindowLayout='FileExplorer|Tagbar'
 " nmap wm :WMToggle<cr>
 " map <silent> <F9> :WMToggle<cr>
-map <leader>tb <Esc>:Tagbar<CR>
+map <leader>t <Esc>:Tagbar<CR>
 
 " ctags plugin配置
 set tags=tags;
@@ -166,7 +172,7 @@ set autochdir
 let Tlist_Show_One_File=1 
 let Tlist_Exit_OnlyWindow=1
 " 关闭NERDTree快捷键
-map <leader>t :NERDTreeToggle<CR>
+map <leader>e :NERDTreeToggle<CR>
 " 显示行号
 let NERDTreeShowLineNumbers=1
 let NERDTreeAutoCenter=1
