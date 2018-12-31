@@ -14,16 +14,17 @@ Plug 'vim-scripts/mycomment'
 Plug 'morhetz/gruvbox'
 Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-fugitive'
-" 状态栏 begin
+" statusbar begin
 " Plug 'vim-airline/vim-airline'
 Plug 'Lokaltog/vim-powerline'
-" 状态栏 end
-Plug 'drewtempelmeyer/palenight.vim' " 基于 Onedark，效果差不多
+" statusbar end
+Plug 'drewtempelmeyer/palenight.vim' " based on Onedark，
 Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
 call plug#end()
 
-" :e ++enc=xxx  chinese是一个别名在unix中表示gb2312 在windows中表示cp936 :h encoding-names
+" :e ++enc=xxx  
+" chinese是一个别名在unix中表示gb2312 在windows中表示cp936 :h encoding-names
 set encoding=utf-8 
 set fileencodings=utf-8,chinese,cp936,ucs-bom,latin-1
 set nocompatible
@@ -35,10 +36,17 @@ if has("win32")
 else
 	set fileencoding=utf-8
 endif
-"解决菜单乱码 begin
+"菜单乱码 begin
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 language messages zh_CN.utf-8 "consle lang 
+
+" use iabbrev to replace some code end with blank code
+iabbrev adn and
+iabbrev ename YoungNovice
+iabbrev @@ 2306915539@qq.com
+iabbrev gitee https://gitee.com/YoungNovice
+iabbrev github https://github.com/YoungNovice
 
 " 取消备份
 set nobackup
@@ -116,7 +124,7 @@ augroup END
 " 映射 -删除当前行 然后粘贴到下一行
 nnoremap <leader>d ddp
 " 映射 -删除当前行 然后粘贴到上一行
-nnoremap <leader>du ddkP
+nnoremap <leader>D ddkP
 nnoremap H ^
 nnoremap L $
 nnoremap <leader>h H
@@ -127,11 +135,6 @@ nnoremap <silent> <leader>h :nohlsearch<CR>
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 " '<,'>
-
-" 增加缩写
-iabbrev adn and
-iabbrev @@ 514565376@qq.com
-iabbrev github http://github.com/YoungNovice
 
 " 插入模式下用jk替代 <esc>  插入模式下禁用esc
 inoremap jk <esc>
