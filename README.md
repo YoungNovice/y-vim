@@ -1,14 +1,14 @@
 # y-vim
-a copy of the original vim configuration
+a copy of vim configuration managed by vim-plug
 
 ### how to install 
 
 ##### for unix 
-* cd ~
-* git clone "git-repo" .vim
-* into vim execute :PlugInstall
+1. cd ~
+2. git clone "git-repo" .vim
+3. into vim execute :PlugInstall
 
-#### for window
+##### for windows
 not support yet
 
 ### core config ~.vim/vimrc
@@ -26,4 +26,4 @@ not support yet
 * img下有几张图片， 多看看有好处
 
 ### plugged 
-插件存放的地方, rtp
+* plugin repo, rtp

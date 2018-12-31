@@ -127,7 +127,7 @@ nnoremap <leader>d ddp
 nnoremap <leader>D ddkP
 nnoremap H ^
 nnoremap L $
-nnoremap <leader>h H
+nnoremap <leader>hh H
 nnoremap <leader>l L
 nnoremap <silent> <leader>h :nohlsearch<CR>
 
