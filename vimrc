@@ -69,6 +69,8 @@ set scrolloff=3 " 在光标在接近底端的时候
 set helplang=cn  " use chinese help doc
 set laststatus=2
 set t_Co=256 " 终端默认8色 设置成256支持
+set splitright
+set splitbelow
 filetype plugin indent on
 " ======================solarized 主题配置================ 
 syntax enable
