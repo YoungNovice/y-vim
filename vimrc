@@ -31,6 +31,7 @@ set nocompatible
 set novisualbell
 set noerrorbells
 set shortmess=atl
+set cmdheight=2
 if has("win32")
 	set fileencoding=chinese
 else
