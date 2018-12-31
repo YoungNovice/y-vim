@@ -5,7 +5,7 @@ a copy of the original vim configuration
 
 ##### for unix 
 * cd ~
-* git clone <git-repo> .vim
+* git clone "git-repo" .vim
 * into vim execute :PlugInstall
 
 #### for window
