@@ -7,7 +7,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'kien/ctrlp.vim'
 " Plug 'vim-scripts/winmanager'
 " Plug 'vim-scripts/taglist.vim'
-Plug 'altercation/vim-colors-Solarized'
+Plug 'altercation/vim-colors-Solarized' "solarized
+Plug 'tomasr/molokai' 
 " Plug 'vim-scripts/Emmet.vim'
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/xml.vim'
@@ -25,7 +26,7 @@ Plug 'Lokaltog/vim-powerline'
 Plug 'drewtempelmeyer/palenight.vim' " based on Onedark，
 Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
-" Plug 'Raimondi/delimitMate'
+ Plug 'Raimondi/delimitMate'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " 语法高亮 检查
 Plug 'sheerun/vim-polyglot'
@@ -38,6 +39,17 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install',
 			\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
+Plug 'Shougo/neocomplete.vim'
+Plug 'spf13/vim-autoclose'
+" Plug 'Valloric/YouCompleteMe'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'vim-scripts/matchit.zip'
+Plug 'vim-scripts/UltiSnips'
+Plug 'tpope/vim-surround'
+Plug 'jnwhiteh/vim-golang'
+" Plug 'sjl/gundo.vim' " 文件编辑历史
+Plug 'vim-scripts/TaskList.vim'
 call plug#end()
 
 " :e ++enc=xxx  
@@ -48,7 +60,7 @@ set nocompatible
 set novisualbell
 set noerrorbells
 set shortmess=atl
-set cmdheight=2
+" set cmdheight=2
 if has("win32")
 	set fileencoding=chinese
 else
@@ -192,7 +204,7 @@ onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rg_vk0"<cr>
 " let g:winManagerWindowLayout='FileExplorer|Tagbar'
 " nmap wm :WMToggle<cr>
 " map <silent> <F9> :WMToggle<cr>
-map <leader>t <Esc>:Tagbar<CR>
+map <leader>tb <Esc>:Tagbar<CR>
 
 " ctags plugin配置
 set tags=tags;
