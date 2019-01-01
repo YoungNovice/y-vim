@@ -127,6 +127,8 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " fast editing of .vimrc
 map <silent> <leader>ee :e  ~/.vim/vimrc<cr>
 
+" 最后文件关闭时自动关闭Nerdtree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
 " 创建buffer自动创建其文件
 :autocmd BufNewFile * :write
 " 在保存html文件前做好缩进
