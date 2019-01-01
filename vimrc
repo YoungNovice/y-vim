@@ -1,19 +1,23 @@
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'vim-scripts/minibufexplorerpp'
 Plug 'jistr/vim-nerdtree-tabs'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'vim-scripts/minibufexplorerpp'
 Plug 'kien/ctrlp.vim'
 " Plug 'vim-scripts/winmanager'
 " Plug 'vim-scripts/taglist.vim'
 Plug 'altercation/vim-colors-Solarized'
-Plug 'vim-scripts/Emmet.vim'
+" Plug 'vim-scripts/Emmet.vim'
+Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/xml.vim'
-Plug 'vim-scripts/html5.vim'
+" Plug 'vim-scripts/html5.vim'
+Plug 'othree/html5.vim'
 Plug 'vim-scripts/mycomment'
 Plug 'morhetz/gruvbox'
 Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 " statusbar begin
 " Plug 'vim-airline/vim-airline'
 Plug 'Lokaltog/vim-powerline'
@@ -21,6 +25,19 @@ Plug 'Lokaltog/vim-powerline'
 Plug 'drewtempelmeyer/palenight.vim' " based on Onedark，
 Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
+" Plug 'Raimondi/delimitMate'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" 语法高亮 检查
+Plug 'sheerun/vim-polyglot'
+Plug 'suan/vim-instant-markdown'
+" css
+Plug 'hail2u/vim-css3-syntax'
+Plug 'ap/vim-css-color'
+" js
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install',
+			\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
 call plug#end()
 
 " :e ++enc=xxx  
@@ -66,8 +83,8 @@ set ignorecase
 set smartcase
 set autoindent
 set smartindent
-" set cursorline " 突出显示当前行
-" set cursorcolumn " 独处显示当前列
+set cursorline " 突出显示当前行
+set cursorcolumn " 独处显示当前列
 set showmode " 左下角显示当前vim模式
 " ========================文本格式排版=====================
 set tabstop=4 " 设置tab长度为4个空格 
@@ -79,6 +96,7 @@ set helplang=cn  " use chinese help doc
 set laststatus=2
 set t_Co=256 " 终端默认8色 设置成256支持
 set splitright
+set fileformats=unix,dos,mac
 " set splitbelow
 filetype plugin indent on
 " ======================solarized 主题配置================ 
@@ -121,6 +139,12 @@ augroup END
 
 " 当vimrc文件被修改之后自动重新加载vimrc
 " :autocmd BufWritePost vimrc :source $MYVIMRC
+
+autocmd vimenter * NERDTree
+augroup VimCSS3Syntax
+	autocmd!
+	autocmd FileType css setlocal iskeyword+=-
+augroup END
 
 " 映射 -删除当前行 然后粘贴到下一行
 nnoremap <leader>d ddp
@@ -179,20 +203,69 @@ let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 " 关闭NERDTree快捷键
 map <leader>e :NERDTreeToggle<CR>
-" 显示行号
-let NERDTreeShowLineNumbers=1
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowLineNumbers=1 " 显示NERDTree行号
 let NERDTreeAutoCenter=1
-" 是否显示隐藏文件
-let NERDTreeShowHidden=1
-" 设置宽度
-let NERDTreeWinSize=30
-" 在终端启动vim时，共享NERDTree
-let g:nerdtree_tabs_open_on_console_startup=1
- " 忽略一下文件的显示
-let NERDTreeIgnore=['\.pyc','\~$','\.swp']
- " 显示书签列表
-let NERDTreeShowBookmarks=1
+let NERDTreeShowHidden=1 " 是否显示隐藏文件
+let NERDTreeWinSize=30 " 设置宽度
+let g:nerdtree_tabs_open_on_console_startup=1 " 在终端启动vim时，共享NERDTree
+let g:NERDTreeShowIgnoredStatus = 1
+let NERDTreeIgnore=['\.pyc','\~$','\.swp'] " 忽略一下文件的显示
+let NERDTreeShowBookmarks=1 " 显示书签列表
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
 " 缩进插件 
 let g:indentLine_noConcealCursor = 1
 let g:indentLine_color_term = 0
 let g:indentLine_char = '|'
+let g:rehash256 = 1
+highlight ColorColumn ctermbg=237 guibg=gray30
+let g:airline_theme="luna"
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCustomDelimiters = {
+ \ 'javascript': { 'left': '//', 'leftAlt': '/**', 'rightAlt': '*/' },
+ \ 'less': { 'left': '/**', 'right': '*/' } }
+let g:instant_markdown_slow = 1
+" emmet 配置
+let g:instant_markdown_autostart = 0
+let g:user_emmet_leader_key='<Tab>'
+let g:user_emmet_settings = {  'javascript.jsx' : {  'extends' : 'jsx',  },  }
+
+" js
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+set foldmethod=syntax
+let g:javascript_conceal_function             = "ƒ"
+let g:javascript_conceal_null                 = "ø"
+let g:javascript_conceal_this                 = "@"
+let g:javascript_conceal_return               = "⇚"
+let g:javascript_conceal_undefined            = "¿"
+let g:javascript_conceal_NaN                  = "ℕ"
+let g:javascript_conceal_prototype            = "¶"
+let g:javascript_conceal_static               = "•"
+let g:javascript_conceal_super                = "Ω"
+let g:javascript_conceal_arrow_function       = "⇒"
+let g:javascript_conceal_noarg_arrow_function = " "
+let g:javascript_conceal_underscore_arrow_function = " "
+set conceallevel=1
+" plug vim-jsx
+let g:jsx_ext_required = 0
+" prettier
+let g:prettier#config#bracket_spacing = 'true'
+let g:prettier#config#jsx_bracket_same_line = 'false'
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
+
