@@ -1,7 +1,7 @@
 " 此配置文件是给ideavim插件配置使用的
 " ideavim智能做一些基本的配置映射和少量的set配置， 
 " 但是可以使用idea IDE特有的action做配置还是不错的
-
+set clipboard+=unnamed
 let mapleader=","
 " idea插件能支持的选项
 set hlsearch
@@ -10,19 +10,37 @@ set ignorecase
 set smartcase
 set showmode
 set number
-" 相对行号
-" set relativenumber
 set scrolloff=3
 set history=100000
 
+" go to normal mode
 inoremap jk <esc>
-
 " quit visual mode
 vnoremap v <esc>
 nnoremap H ^
 nnoremap L $
-
 " redo
 nnoremap U <C-r>
+" gT gt tab switch
 
-" gT gt tab之间切换 是个好东西啊
+" remap some ide 相关滚动全部用leader处理 
+noremap <leader>f <C-f>
+noremap <leader>b <C-b>
+noremap <leader>e <C-e>
+noremap <leader>y <C-y>
+noremap <leader>d <C-d>
+noremap <leader>u <C-u>
+noremap <leader>g <C-g>
+noremap <leader>w <C-w>
+noremap <leader>w <C-v>
+noremap <leader>x <C-x>
+
+" action
+noremap <silent> <leader>a :action GotoAction<cr>
+" :class = GotoClass
+" noremap <silent> <leader>c :action GotoClass<cr>
+" :find = GotoFile
+" noremap <silent> <leader>gf :action GotoFile<cr>
+
+
+
