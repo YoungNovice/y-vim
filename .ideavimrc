@@ -32,7 +32,7 @@ noremap <leader>d <C-d>
 noremap <leader>u <C-u>
 noremap <leader>g <C-g>
 noremap <leader>w <C-w>
-noremap <leader>w <C-v>
+noremap <leader>v <C-v>
 noremap <leader>x <C-x>
 
 " action
@@ -41,6 +41,13 @@ noremap <silent> <leader>a :action GotoAction<cr>
 " noremap <silent> <leader>c :action GotoClass<cr>
 " :find = GotoFile
 " noremap <silent> <leader>gf :action GotoFile<cr>
+
+" navigate file useful
+noremap <silent> <leader>R :action RecentChangedFiles<cr>
+noremap <silent> <leader>r :action RecentFiles<cr>
+" code Forward or back useful
+noremap <silent> <leader>< :action Back<cr>
+noremap <silent> <leader>> :action Forward<cr>
 
 
 
