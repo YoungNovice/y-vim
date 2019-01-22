@@ -45,7 +45,6 @@ Plug 'spf13/vim-autoclose'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-scripts/matchit.zip'
-Plug 'vim-scripts/UltiSnips'
 Plug 'tpope/vim-surround'
 Plug 'jnwhiteh/vim-golang'
 " Plug 'sjl/gundo.vim' " 文件编辑历史
