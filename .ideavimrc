@@ -105,9 +105,6 @@ nnoremap <Leader>tc :action CloseActiveTab<CR>
 nnoremap <Leader>tl Vy<CR>:action ActivateTerminalToolWindow<CR>
 vnoremap <Leader>tl y<CR>:action ActivateTerminalToolWindow<CR>
 
-nnoremap <Leader><space> a<space><ESC>:action CodeCompletion<CR>
-inoremap <Leader><space> <space><ESC>:action CodeCompletion<CR>
-
 nnoremap <leader>ss :action FileStructurePopup<CR>
 nnoremap <Leader>fs :action ToggleFullScreen<CR><ESC>
 
