@@ -1,9 +1,5 @@
-" 此配置文件是给ideavim插件配置使用的
-" ideavim智能做一些基本的配置映射和少量的set配置， 
-" 但是可以使用idea IDE特有的action做配置还是不错的
 set clipboard+=unnamed
 let mapleader=","
-" idea插件能支持的选项
 set hlsearch
 set incsearch
 set ignorecase
@@ -12,6 +8,11 @@ set showmode
 set number
 set scrolloff=3
 set history=100000
+set shiftwidth=4
+set tabstop=4
+set smarttab
+" show matching brackets when text indicator is over then
+set showmatch
 
 " go to normal mode
 inoremap jk <esc>
@@ -19,15 +20,15 @@ inoremap jk <esc>
 vnoremap v <esc>
 nnoremap H ^
 nnoremap L $
+vnoremap H ^
+vnoremap L $
 " redo
 nnoremap U <C-r>
-" gT gt tab switch
+vnoremap U <C-r>
 
 " remap some ide 相关滚动全部用leader处理 
 noremap <leader>f <C-f>
 noremap <leader>b <C-b>
-noremap <leader>e <C-e>
-noremap <leader>y <C-y>
 noremap <leader>d <C-d>
 noremap <leader>u <C-u>
 noremap <leader>g <C-g>
@@ -35,19 +36,78 @@ noremap <leader>w <C-w>
 noremap <leader>v <C-v>
 noremap <leader>x <C-x>
 
-" action
-noremap <silent> <leader>a :action GotoAction<cr>
-" :class = GotoClass
-" noremap <silent> <leader>c :action GotoClass<cr>
-" :find = GotoFile
-" noremap <silent> <leader>gf :action GotoFile<cr>
+noremap <leader>j :action EditorScrollDown<cr>
+noremap <leader>k :action EditorScrollUp<cr>
+noremap <leader>h :action EditorScrollLeft<cr>
+noremap <leader>l :action EditorScrollRight<cr>
 
-" navigate file useful
-noremap <silent> <leader>R :action RecentChangedFiles<cr>
-noremap <silent> <leader>r :action RecentFiles<cr>
+" gT gt tab switch
+nnoremap tn gt
+nnoremap tp gT
+" navigate 
+
 " code Forward or back useful
 noremap <silent> <leader>< :action Back<cr>
 noremap <silent> <leader>> :action Forward<cr>
+nnoremap <leader>gb :action Back<CR>
+nnoremap <leader>fw :action Forward<CR>
 
+nnoremap <Leader>bb :action ToggleLineBreakpoint<CR>
+nnoremap <Leader>br :action ViewBreakpoints<CR>
+
+" :class=GotoClass :find=GotoFile
+nnoremap ga :action GotoAction<CR>
+nnoremap gc :action GotoClass<CR>
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gf :action GotoFile<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gs :action GotoSymbol<CR>
+nnoremap gr :action RecentChangedFiles<cr>
+nnoremap gR :action RecentFiles<cr>
+nnoremap <Leader>ga :action GotoAction<CR>
+nnoremap <Leader>gc :action GotoClass<CR>
+nnoremap <Leader>gd :action GotoDeclaration<CR>
+nnoremap <Leader>gf :action GotoFile<CR>
+nnoremap <Leader>gi :action GotoImplementation<CR>
+nnoremap <Leader>gs :action GotoSymbol<CR>
+nnoremap <leader>gr :action RecentChangedFiles<cr>
+nnoremap <leader>gR :action RecentFiles<cr>
+nnoremap <Leader>gt :action GotoTest<CR>
+nnoremap fu :action FindUsages<cr>
+
+" Window operation
+nnoremap <Leader>ww <C-W>w
+nnoremap <Leader>wd <C-W>c
+nnoremap <Leader>wj <C-W>j
+nnoremap <Leader>wk <C-W>k
+nnoremap <Leader>wh <C-W>h
+nnoremap <Leader>wl <C-W>l
+nnoremap <Leader>ws <C-W>s
+nnoremap <Leader>w- <C-W>s
+nnoremap <Leader>wv <C-W>v
+nnoremap <Leader>w\| <C-W>v
+" quit ==> close current window
+nnoremap <Leader>q <C-W>w
+
+nnoremap <Leader>cd :action ChooseDebugConfiguration<CR>
+nnoremap <Leader>fp :action ShowFilePath<CR>
+nnoremap <Leader>ic :action InspectCode<CR>
+nnoremap <Leader>mv :action ActivateMavenProjectsToolWindow<CR>
+nnoremap <Leader>oi :action OptimizeImports<CR>
+" 右键菜单有点用但是不太灵敏 p是粘贴 容易误操作还是不用算了
+" nnoremap <Leader>pm :action ShowPopupMenu<CR>
+nnoremap <Leader>rc :action ChooseRunConfiguration<CR>
+nnoremap <Leader>re :action RenameElement<CR>
+nnoremap <Leader>rf :action RenameFile<CR>
+nnoremap <Leader>su :action ShowUsages<CR>
+nnoremap <Leader>fu :action FindUsages<CR>
+nnoremap <Leader>tc :action CloseActiveTab<CR>
+nnoremap <Leader>tl Vy<CR>:action ActivateTerminalToolWindow<CR>
+vnoremap <Leader>tl y<CR>:action ActivateTerminalToolWindow<CR>
+
+nnoremap <leader>ss :action FileStructurePopup<CR>
+nnoremap <Leader>fs :action ToggleFullScreen<CR><ESC>
+
+nnoremap <leader>hm :action MethodHierarchy<CR>
 
 
