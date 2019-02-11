@@ -114,7 +114,7 @@ filetype plugin indent on
 syntax enable
 syntax on
 set background=dark
-colorschem gruvbox
+colorscheme gruvbox
 au BufEnter * :syntax sync fromstart
 
 " fast reloading of the .vim/vimrc
