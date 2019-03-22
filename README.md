@@ -28,3 +28,10 @@ vim配置 用vim-plug管理
 
 ### plugged 
 * plugin repo, rtp
+
+### 学习笔记在learnnote中
+学习vim的初衷是为了减少鼠标的操作 最终目标是实现不用鼠标
+并且在不同的开发环境(idea commandline)下达到一致的编程体验
+现在看来基本实现了， 目前转向emacs了用Evil mode模拟vim
+
+2019.3.22 23:41:22
