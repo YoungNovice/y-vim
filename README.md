@@ -1,5 +1,5 @@
 # y-vim
-a copy of vim configuration managed by vim-plug
+vim配置 用vim-plug管理
 
 ### how to install 
 
@@ -8,8 +8,9 @@ a copy of vim configuration managed by vim-plug
 2. git clone "git-repo" .vim
 3. into vim execute :PlugInstall
 
-##### for windows
-not support yet
+##### for ideavim
+1. cd ~
+2. ln -s .vim/.ideavimrc
 
 ### core config ~.vim/vimrc
 * use vim-plug to manage vim plugin
